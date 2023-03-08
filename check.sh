@@ -1,6 +1,9 @@
 #!/bin/bash
-response=$(curl -s -o /dev/null -w "%{http_code}\n" http://localhost:9889/) 
-if [ "$response" != "200" ] 
-then 
- exit 1 
+
+status_code=$(curl --write-out %{http_code} --silent --output /dev/null http://localhost:9889/)
+
+if [[ "$status_code" -ne 200 ]] ; then
+  echo "Site status $status_code"
+else
+  exit 1
 fi
