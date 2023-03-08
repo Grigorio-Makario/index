@@ -5,4 +5,8 @@ status_code=$(curl --write-out %{http_code} --silent --output /dev/null http://l
 if [[ "$status_code" -ne 200 ]] ; then
     echo "Site status $status_code" build is failed
     exit 1
+    else
+    echo "Site status $status_code" Site online!
+    exit 0
 fi
+
