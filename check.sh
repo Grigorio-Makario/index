@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 5
+sleep 4
 status_code=$(curl --write-out %{http_code} --silent --output /dev/null http://localhost:9889/)
 
 if [[ "$status_code" -ne 200 ]] ; then
